@@ -8,8 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Statistiques d&apos;utilistation du disque dur"
-        android:id="@+id/ddStatsTitle"
+        android:text="Statistiques de température"
+        android:id="@+id/tempStatsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -18,22 +18,25 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ddListView"
+        android:id="@+id/listView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginBottom="100dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Graphique"
-        android:id="@+id/graphDDBtn"
+        android:text="New Button"
+        android:id="@+id/Graphique"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
-        android:layout_alignEnd="@+id/ddListView"
-        android:layout_alignStart="@+id/ddListView"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/listView" />
 </RelativeLayout>
