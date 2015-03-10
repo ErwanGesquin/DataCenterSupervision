@@ -5,4 +5,13 @@
 .DS_Store
 /build
 .idea/
+build/
+gradle/
+build.gradle
+DataCenterSupervision.iml
+gradle.properties
+gradelew
+gradelew.bat
+local.properties
+settings.gradle
 
