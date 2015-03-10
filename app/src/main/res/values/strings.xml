@@ -3,4 +3,33 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- vue de préférences 1 -->
+    <string name="pref_cat_serveursql">PARAMÈTRES DU SERVEUR BDD</string>
+    <string name="title_ipServeur">Serveur SQL Express</string>
+    <string name="summary_ipServeur">Entrer l\'adresse ou le nom d\'hôte</string>
+    <string name="title_portServeur">Serveur SQL Express</string>
+    <string name="summary_portServeur">Entrer le port d\'écoute du serveur</string>
+    <string name="title_user">Nom d\'utilisateur</string>
+    <string name="summary_user">Entrer le nom du compte autorisé</string>
+    <string name="title_password">Mot de passe</string>
+    <string name="summary_password">Entrer le mot de passe de connexion</string>
+
+    <!-- vue de préférences 2 -->
+    <string name="pref_cat_serveursnmp">PARAMÈTRES DU SERVEUR SNMP</string>
+    <string name="title_ipAgentV1">Agent SNMP V1</string>
+    <string name="summary_ipAgentV1">Entrer l\'adresse ou le nom d\'hôte</string>
+    <string name="title_portAgentV1">Agent SNMP v1</string>
+    <string name="summary_portAgentV1">Entrer le port d\'écoute du serveur</string>
+    <string name="title_communauteDisc">Communauté SNMP en lecture</string>
+    <string name="summary_communauteDisc">Entrer le communauté SNMP en lecture</string>
+
+    <!-- vue de préférences 3 -->
+    <string name="pref_cat_serveursonde">PARAMÈTRES DE LA SONDE TEMPERATURE SNMP</string>
+    <string name="title_ipAgentV1_s">Agent SNMP V1</string>
+    <string name="summary_ipAgentV1_s">Entrer l\'adresse ou le nom d\'hôte</string>
+    <string name="title_portAgentV1_s">Agent SNMP v1</string>
+    <string name="summary_portAgentV1_s">Entrer le port d\'écoute du serveur</string>
+    <string name="title_communauteSonde">Communauté SNMP en lecture</string>
+    <string name="summary_communauteSonde">Entrer le communauté SNMP en lecture</string>
 </resources>
