@@ -4,14 +4,45 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private Button discUsageBtn;
+    private Button discStatBtn;
+    private Button processorUsageBtn;
+    private Button processorStatsBtn;
+    private Button baieTempBtn;
+    private Button statBaieTempBtn;
+    private EditText DDEditText;
+    private EditText procUseEditText;
+    private EditText BaieTempEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        discUsageBtn = (Button) findViewById(R.id.discUsageBtn);
+        discStatBtn = (Button) findViewById(R.id.discStatBtn);
+        processorUsageBtn = (Button) findViewById(R.id.processorUsageBtn);
+        processorStatsBtn = (Button) findViewById(R.id.processorStatsBtn);
+        baieTempBtn = (Button) findViewById(R.id.baieTempBtn);
+        statBaieTempBtn = (Button) findViewById(R.id.statBaieTempBtn);
+        DDEditText = (EditText) findViewById(R.id.DDEditText);
+        procUseEditText = (EditText) findViewById(R.id.procUseEditText);
+        BaieTempEditText = (EditText) findViewById(R.id.BaieTempEditText);
+
+        discUsageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
 
