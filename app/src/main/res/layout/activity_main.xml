@@ -1,9 +1,149 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout  android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+        android:background="#ff54c218">
 
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Supervision du Data Center"
+            android:id="@+id/mainTitle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:textColor="#ff1b00ff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="usage disque"
+            android:id="@+id/discUsageBtn"
+            android:layout_below="@+id/mainTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp"
+            android:layout_toStartOf="@+id/discStatBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statistiques disque"
+            android:id="@+id/discStatBtn"
+            android:layout_above="@+id/processorUsageBtn"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usage                 processeur"
+            android:id="@+id/processorUsageBtn"
+            android:layout_below="@+id/discUsageBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="120dp"
+            android:layout_alignEnd="@+id/discUsageBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statistique processeur"
+            android:id="@+id/processorStatsBtn"
+            android:layout_alignTop="@+id/processorUsageBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/discStatBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Température                baie"
+            android:id="@+id/baieTempBtn"
+            android:layout_below="@+id/processorUsageBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="120dp"
+            android:layout_alignEnd="@+id/processorUsageBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statistique température baie"
+            android:id="@+id/statBaieTempBtn"
+            android:layout_alignTop="@+id/baieTempBtn"
+            android:layout_alignEnd="@+id/processorStatsBtn"
+            android:layout_alignStart="@+id/processorStatsBtn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Utilisation DD :"
+            android:id="@+id/DDUseTextView"
+            android:layout_below="@+id/discUsageBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/DDEditText"
+            android:layout_below="@+id/DDUseTextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/processorStatsBtn"
+            android:layout_marginTop="15dp"
+            android:background="#fff9ffc7"
+            android:clickable="false"
+            android:editable="false"
+            android:enabled="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Utilisation processeur : "
+            android:id="@+id/procUseTextView"
+            android:layout_below="@+id/processorUsageBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/procUseEditText"
+            android:layout_below="@+id/procUseTextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/statBaieTempBtn"
+            android:layout_marginTop="15dp"
+            android:background="#fff9ffc7"
+            android:editable="false"
+            android:enabled="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Température de la baie : "
+            android:id="@+id/baieTempTextView"
+            android:layout_below="@+id/baieTempBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/BaieTempEditText"
+            android:layout_below="@+id/baieTempTextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/statBaieTempBtn"
+            android:layout_marginTop="15dp"
+            android:background="#fff9ffc7"
+            android:editable="false"
+            android:enabled="true" />
+
+    </RelativeLayout>
+</ScrollView>
