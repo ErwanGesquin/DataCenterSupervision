@@ -33,17 +33,17 @@ public class ClientSQLmetier {
         DriverManager.setLoginTimeout(timeout);
     }
 
-    public ResultSet getTableFournisseurs() throws SQLException
+    public ResultSet getTableTEMP() throws SQLException
     {
         if( conn == null )
             conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select * from F");
+        ResultSet result = stmt.executeQuery("select * from Temperature");
         return result;
     }
 
-    public int addNewFournisseur(int nf, String nom, String statut, String ville)
+    public int addNewTEMP(int nf, String nom, String statut, String ville)
     {
         int result = -1;
         if( conn == null )
@@ -74,7 +74,7 @@ public class ClientSQLmetier {
         return result;
     }
 
-    public int deleteFournisseur(int NF)
+    public int deleteTEMPS(int NF)
     {
         int result = -1;
         if( conn == null )
