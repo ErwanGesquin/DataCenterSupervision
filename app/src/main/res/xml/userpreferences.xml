@@ -6,7 +6,7 @@
             android:key="PREFKEY_IPSERVEUR"
             android:title="@string/title_ipServeur"
             android:summary="@string/summary_ipServeur"
-            android:defaultValue="serveurpush.michel-marie.net"
+            android:defaultValue="82.233.223.249"
             />
         <EditTextPreference
             android:key="PREFKEY_PORTSERVEUR"
@@ -18,7 +18,7 @@
             android:key="PREFKEY_USERNAME"
             android:title="@string/title_user"
             android:summary="@string/summary_user"
-            android:defaultValue="manager"
+            android:defaultValue="Supervision"
             />
         <EditTextPreference
             android:key="PREFKEY_PASSWORD"
@@ -34,20 +34,19 @@
             android:key="PREFKEY_IPAGENTV1"
             android:title="@string/title_ipAgentV1"
             android:summary="@string/summary_ipAgentV1"
-            android:defaultValue="serveurpush.michel-marie.net"
+            android:defaultValue="82.233.223.249"
             />
         <EditTextPreference
             android:key="PREFKEY_PORTAGENTV1"
             android:title="@string/title_portAgentV1"
             android:summary="@string/summary_portAgentV1"
-            android:defaultValue="1433"
+            android:defaultValue="161"
             />
         <EditTextPreference
             android:key="PREFKEY_COMMUNAUTEDISC"
             android:title="@string/title_communauteDisc"
             android:summary="@string/summary_communauteDisc"
-            android:defaultValue="Password1234"
-            android:password="true"
+            android:defaultValue="DataCenterVDR"
             />
     </PreferenceCategory>
 
@@ -56,20 +55,19 @@
             android:key="PREFKEY_IPAGENTV1_S"
             android:title="@string/title_ipAgentV1_s"
             android:summary="@string/summary_ipAgentV1_s"
-            android:defaultValue="serveurpush.michel-marie.net"
+            android:defaultValue="82.233.223.249"
             />
         <EditTextPreference
             android:key="PREFKEY_PORTAGENTV1_S"
             android:title="@string/title_portAgentV1_s"
             android:summary="@string/summary_portAgentV1_s"
-            android:defaultValue="1433"
+            android:defaultValue="1610"
             />
         <EditTextPreference
             android:key="PREFKEY_COMMUNAUTESONDE"
             android:title="@string/title_communauteSonde"
             android:summary="@string/summary_communauteSonde"
-            android:defaultValue="Password1234"
-            android:password="true"
+            android:defaultValue="DataCenterVDR"
             />
     </PreferenceCategory>
 </PreferenceScreen>
