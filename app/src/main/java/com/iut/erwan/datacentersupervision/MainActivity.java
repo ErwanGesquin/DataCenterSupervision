@@ -19,7 +19,11 @@ public class MainActivity extends ActionBarActivity {
     private Button statBaieTempBtn;
     private EditText DDEditText;
     private EditText procUseEditText;
-    private EditText BaieTempEditText;
+
+
+    SnmpGetTaskSonde task;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,14 @@ public class MainActivity extends ActionBarActivity {
         statBaieTempBtn = (Button) findViewById(R.id.statBaieTempBtn);
         DDEditText = (EditText) findViewById(R.id.DDEditText);
         procUseEditText = (EditText) findViewById(R.id.procUseEditText);
-        BaieTempEditText = (EditText) findViewById(R.id.BaieTempEditText);
 
-        discUsageBtn.setOnClickListener(new View.OnClickListener() {
+
+
+
+        baieTempBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                task = new SnmpGetTaskSonde(MainActivity.this);
             }
         });
 
