@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity{
         baieTempBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                task = new SnmpGetTaskSonde(MainActivity.this);
+                task = new SnmpGetTaskSonde(MainActivity.this, ip1, Integer.parseInt(port1));
             }
         });
 

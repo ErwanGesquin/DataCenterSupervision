@@ -15,12 +15,17 @@ public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String> 
 
     ProgressDialog progressBar = null;
     SnmpTarget target = null;
-    Boolean erreurFlag = null;
+    Boolean erreurFlag = true;
     MainActivity context = null;
     private EditText BaieTempEditText;
+    private String host = null;
+    private int port = 0;
+    private String OID = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
 
-    public SnmpGetTaskSonde(MainActivity context){
+    public SnmpGetTaskSonde(MainActivity context, String host, int port){
         this.context = context;
+        this.host = host;
+        this.port = port;
     }
 
 
@@ -35,8 +40,9 @@ public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String> 
     protected String doInBackground(String[] params) {
 
         target = new SnmpTarget();
-        target.setTargetHost(params[1]);
-        target.setObjectID(params[2]);
+        target.setTargetHost(host);
+        target.setTargetPort(port);
+        target.setObjectID(OID);
 
         return target.snmpGet();
     }
