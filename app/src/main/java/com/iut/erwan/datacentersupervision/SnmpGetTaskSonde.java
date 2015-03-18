@@ -11,7 +11,7 @@ import com.adventnet.snmp.beans.SnmpTarget;
 /**
  * Created by erwan on 10/03/15.
  */
-public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String> {
+public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String[]> {
 
     ProgressDialog progressBar = null;
     SnmpTarget target = null;
@@ -20,40 +20,43 @@ public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String> 
     private EditText BaieTempEditText;
     private String host = null;
     private int port = 0;
-    private String OID = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
+    private String community = null;
 
-    public SnmpGetTaskSonde(MainActivity context, String host, int port){
+    public SnmpGetTaskSonde(MainActivity context, String host, int port, String community){
         this.context = context;
         this.host = host;
         this.port = port;
+        this.community = community;
     }
 
 
     @Override
     protected void onPreExecute(){
-        progressBar = new ProgressDialog(context.getApplicationContext());
-        progressBar.setTitle("Progession");
-        progressBar.show();
+
     }
 
     @Override
-    protected String doInBackground(String[] params) {
+    protected String[] doInBackground(String... params) {
 
-        target = new SnmpTarget();
-        target.setTargetHost(host);
-        target.setTargetPort(port);
-        target.setObjectID(OID);
+        this.target = new SnmpTarget();
+        this.target.setTargetHost(host);
+        this.target.setTargetPort(port);
+        this.target.setCommunity(community);
+        this.target.setSnmpVersion(SnmpTarget.VERSION1);
+        this.target.setObjectID(String.valueOf(params[0]));
 
-        return target.snmpGet();
+        String[] res = this.target.snmpGetList();
+
+        return res;
     }
 
 
 
     @Override
-    protected void onPostExecute(String params){
-        progressBar.dismiss();
+    protected void onPostExecute(String[] params){
+
         BaieTempEditText = (EditText) context.findViewById(R.id.BaieTempEditText);
-        BaieTempEditText.setText(params + " °C");
+        BaieTempEditText.setText(params[0] + " °C");
     }
 
 
