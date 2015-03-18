@@ -64,7 +64,10 @@ public class MainActivity extends ActionBarActivity{
         baieTempBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                task = new SnmpGetTaskSonde(MainActivity.this, ip1, Integer.parseInt(port1));
+                String[] OIDS = new String[1];
+                OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
+                task = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
+                task.execute(OIDS);
             }
         });
 
