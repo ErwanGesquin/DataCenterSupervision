@@ -4,7 +4,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- label manifest -->
     <string name="menu_preferences">Préférences</string>
+    <string name="label_statsActivity">Température de la baie</string>
 
     <!-- vue de préférences 1 -->
     <string name="pref_cat_serveursql">PARAMÈTRES DU SERVEUR BDD</string>
@@ -34,4 +36,6 @@
     <string name="summary_portAgentV1_s">Entrer le port d\'écoute du serveur</string>
     <string name="title_communauteSonde">Communauté SNMP en lecture</string>
     <string name="summary_communauteSonde">Entrer le communauté SNMP en lecture</string>
+
+
 </resources>

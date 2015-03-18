@@ -18,7 +18,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/listViewTemp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
@@ -31,12 +31,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Courbe des statistiques"
         android:id="@+id/Graphique"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="40dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/listView" />
+        android:layout_alignStart="@+id/listViewTemp" />
 </RelativeLayout>
