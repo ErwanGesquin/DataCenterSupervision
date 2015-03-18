@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity{
 
-    //variable pour la vue des préférences
+    //variables pour la vue des préférences
     static final private int MENU_PREFERENCES = Menu.FIRST;
     static final private int CODE_REQUETE_PREFERENCES = 1;
     private String ip;
@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity{
     private String port2;
     private String lec2;
 
-    //variable pour les composants de la vue principale
+    //variables pour les composants de la vue principale
     private Button discUsageBtn;
     private Button discStatBtn;
     private Button processorUsageBtn;
@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.updateAttributsFromPreferences();
 
         discUsageBtn = (Button) findViewById(R.id.discUsageBtn);
         discStatBtn = (Button) findViewById(R.id.discStatBtn);
@@ -71,7 +72,7 @@ public class MainActivity extends ActionBarActivity{
 
     }
 
-
+    //méthode pour les préférences
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, MENU_PREFERENCES, Menu.NONE, R.string.menu_preferences);
