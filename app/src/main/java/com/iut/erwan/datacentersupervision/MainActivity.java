@@ -35,11 +35,11 @@ public class MainActivity extends ActionBarActivity{
     private Button processorStatsBtn;
     private Button baieTempBtn;
     private Button statBaieTempBtn;
-    private EditText DDEditText;
-    private EditText procUseEditText;
 
 
-    SnmpGetTaskSonde task;
+
+    SnmpGetTaskSonde taskSonde;
+    SnmpGetTask taskDDProc;
 
 
 
@@ -55,8 +55,7 @@ public class MainActivity extends ActionBarActivity{
         processorStatsBtn = (Button) findViewById(R.id.processorStatsBtn);
         baieTempBtn = (Button) findViewById(R.id.baieTempBtn);
         statBaieTempBtn = (Button) findViewById(R.id.statBaieTempBtn);
-        DDEditText = (EditText) findViewById(R.id.DDEditText);
-        procUseEditText = (EditText) findViewById(R.id.procUseEditText);
+
 
 
 
@@ -66,10 +65,34 @@ public class MainActivity extends ActionBarActivity{
             public void onClick(View v) {
                 String[] OIDS = new String[1];
                 OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
-                task = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
-                task.execute(OIDS);
+                taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
+                taskSonde.execute(OIDS);
             }
         });
+
+        discUsageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] OIDS = new String[3];
+                OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
+                OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
+                OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";
+                taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, true);
+                taskDDProc.execute(OIDS);
+
+            }
+        });
+
+        processorUsageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] OIDS = new String[1];
+                OIDS[0] = ".1.3.6.1.2.1.25.3.3.1.2.3";
+                taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
+                taskDDProc.execute(OIDS);
+            }
+        });
+
 
         statBaieTempBtn.setOnClickListener(new View.OnClickListener() {
             @Override
