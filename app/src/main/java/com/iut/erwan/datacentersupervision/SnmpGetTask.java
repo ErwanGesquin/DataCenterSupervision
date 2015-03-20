@@ -1,5 +1,6 @@
 package com.iut.erwan.datacentersupervision;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.EditText;
@@ -9,7 +10,7 @@ import com.adventnet.snmp.beans.SnmpTarget;
 /**
  * Created by erwan on 19/03/15.
  */
-public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
+public class SnmpGetTask extends AsyncTask<String, Integer, String[]> {
 
     ProgressDialog progressBar = null;
     SnmpTarget target = null;
@@ -22,20 +23,28 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
     private String community = null;
     private Boolean disk = null;
 
+
     public SnmpGetTask(MainActivity context, String host, int port, String community, Boolean disk){
-        this.context = context;
-        this.host = host;
-        this.port = port;
-        this.community = community;
-        this.disk = disk;
+        if (context.isConnectingToInternet(context.getApplicationContext())) {
+            this.context = context;
+            this.host = host;
+            this.port = port;
+            this.community = community;
+            this.disk = disk;
+        } else {
+            AlertDialog.Builder alertConn = new AlertDialog.Builder(context.getApplicationContext());
+            alertConn.setTitle("Vous n'êtes pas connecté à internet");
+            alertConn.show();
+        }
     }
 
 
     @Override
     protected void onPreExecute(){
-       /* progressBar = new ProgressDialog(context.getApplicationContext());
+        progressBar = new ProgressDialog(context);
         progressBar.setMessage("Progression.");
-        progressBar.show();*/
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.show();
     }
 
     @Override
@@ -63,11 +72,9 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
         return res;
     }
 
-
-
     @Override
     protected void onPostExecute(String[] params){
-        // progressBar.dismiss();
+        progressBar.dismiss();
         String procs = "";
         String dd = "";
         if(disk) {
@@ -86,7 +93,7 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
 
             procUseEditText.setText(procs);
         }
-
+        progressBar.dismiss();
 
     }
 

@@ -1,7 +1,11 @@
 package com.iut.erwan.datacentersupervision;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -60,50 +64,51 @@ public class MainActivity extends ActionBarActivity{
 
 
 
-        baieTempBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] OIDS = new String[1];
-                OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
-                taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
-                taskSonde.execute(OIDS);
-            }
-        });
-
-        discUsageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] OIDS = new String[4];
-                OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
-                OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
-                OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";
-                taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, true);
-                taskDDProc.execute(OIDS);
-
-            }
-        });
-
-        processorUsageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] OIDS = new String[10];
-
-                for (int k = 2; k <= 9; k++) {
-                    OIDS[k-2] = String.valueOf(".1.3.6.1.2.1.25.3.3.1.2." + k);
+            baieTempBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String[] OIDS = new String[1];
+                    OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
+                    taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
+                    taskSonde.execute(OIDS);
                 }
-                taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
-                taskDDProc.execute(OIDS);
-            }
-        });
+            });
+
+            discUsageBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String[] OIDS = new String[4];
+                    OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
+                    OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
+                    OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";
+                    taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, true);
+                    taskDDProc.execute(OIDS);
+
+                }
+            });
+
+            processorUsageBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String[] OIDS = new String[10];
+
+                    for (int k = 2; k <= 9; k++) {
+                        OIDS[k - 2] = String.valueOf(".1.3.6.1.2.1.25.3.3.1.2." + k);
+                    }
+                    taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
+                    taskDDProc.execute(OIDS);
+                }
+            });
 
 
-        statBaieTempBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,StatsTEMPActivity.class);
-                startActivity(intent);
-            }
-        });
+            statBaieTempBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
+                    startActivity(intent);
+                }
+            });
+
 
     }
 
@@ -151,6 +156,21 @@ public class MainActivity extends ActionBarActivity{
         this.ip2 = prefs.getString( PreferencesFragments.PREFKEY_IPAGENTV1_S, "82.233.223.249");
         this.port2 =  prefs.getString( PreferencesFragments.PREFKEY_PORTAGENTV1_S, "1610");
         this.lec2 = prefs.getString( PreferencesFragments.PREFKEY_COMMUNAUTESONDE, "DataCenterVDR");
+    }
+
+    public boolean isConnectingToInternet(Context context){
+        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null) {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null){
+                for (int i = 0; i < info.length; i++){
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 }

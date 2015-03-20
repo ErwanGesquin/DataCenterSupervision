@@ -32,9 +32,10 @@ public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String[]
 
     @Override
     protected void onPreExecute(){
-       /* progressBar = new ProgressDialog(context.getApplicationContext());
+        progressBar = new ProgressDialog(context);
         progressBar.setMessage("Progression.");
-        progressBar.show();*/
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.show();
     }
 
     @Override
@@ -54,7 +55,7 @@ public class SnmpGetTaskSonde extends AsyncTask<String, ProgressDialog, String[]
 
     @Override
     protected void onPostExecute(String[] params){
-       // progressBar.dismiss();
+        progressBar.dismiss();
         BaieTempEditText = (EditText) context.findViewById(R.id.BaieTempEditText);
         BaieTempEditText.setText(params[0] + " °C");
     }
