@@ -73,7 +73,7 @@ public class MainActivity extends ActionBarActivity{
         discUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] OIDS = new String[3];
+                String[] OIDS = new String[4];
                 OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
                 OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
                 OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";

@@ -48,19 +48,18 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
         this.target.setCommunity(community);
         this.target.setSnmpVersion(SnmpTarget.VERSION1);
         if (disk){
-            this.target.setObjectID(String.valueOf(params[0]));
+            for (int i = 0; i < 4; i++) {
+                this.target.addObjectID(String.valueOf(params[i]));
+                res = this.target.snmpGetList();
+            }
+
             res = this.target.snmpGetList();
         } else {
             for (int i = 0; i < 8; i++) {
                 this.target.addObjectID(params[i]);
                 res = this.target.snmpGetList();
             }
-
         }
-
-
-
-
         return res;
     }
 
@@ -70,9 +69,11 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
     protected void onPostExecute(String[] params){
         // progressBar.dismiss();
         String procs = "";
+        String dd = "";
         if(disk) {
             DDEditText = (EditText) context.findViewById(R.id.DDEditText);
-            DDEditText.setText(params[0] + " UA");
+            dd = params[2] + " / " + params[1] + " octets utilisés.";
+            DDEditText.setText(dd);
         } else {
             procUseEditText = (EditText) context.findViewById(R.id.procUseEditText);
             for (int i = 0; i < 8; i++){

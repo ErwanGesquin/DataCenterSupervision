@@ -25,5 +25,4 @@ dependencies {
     compile files('/home/erwan/AndroidStudioProjects/DataCenterSupervision/libs/AdventNetSnmp.jar')
     compile files('/home/erwan/AndroidStudioProjects/DataCenterSupervision/libs/androidplot-core-0.6.0.jar')
     compile files('/home/erwan/AndroidStudioProjects/DataCenterSupervision/libs/jtds-1.2.8.jar')
-    compile files('C:/Users/Utilisateur/AndroidStudioProjects/DataCenterSupervision/libs/AdventNetSnmp.jar')
 }

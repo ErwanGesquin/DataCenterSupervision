@@ -16,3 +16,16 @@ local.properties
 settings.gradle
 
 
+
+app/build.gradle
+.idea
+app/build
+app/libs
+app/.gitignore
+app/app.iml
+app/proguard-rules.pro
+build
+gradle
+libs
+gradlew
+gradlew.bat
