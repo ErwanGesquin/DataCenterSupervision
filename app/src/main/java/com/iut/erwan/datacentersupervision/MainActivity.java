@@ -86,8 +86,11 @@ public class MainActivity extends ActionBarActivity{
         processorUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] OIDS = new String[1];
-                OIDS[0] = ".1.3.6.1.2.1.25.3.3.1.2.3";
+                String[] OIDS = new String[10];
+
+                for (int k = 2; k <= 9; k++) {
+                    OIDS[k-2] = String.valueOf(".1.3.6.1.2.1.25.3.3.1.2." + k);
+                }
                 taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
                 taskDDProc.execute(OIDS);
             }

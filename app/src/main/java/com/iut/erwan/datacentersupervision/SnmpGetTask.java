@@ -41,14 +41,25 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
     @Override
     protected String[] doInBackground(String... params) {
 
+        String[] res = null;
         this.target = new SnmpTarget();
         this.target.setTargetHost(host);
         this.target.setTargetPort(port);
         this.target.setCommunity(community);
         this.target.setSnmpVersion(SnmpTarget.VERSION1);
-        this.target.setObjectID(String.valueOf(params[0]));
+        if (disk){
+            this.target.setObjectID(String.valueOf(params[0]));
+            res = this.target.snmpGetList();
+        } else {
+            for (int i = 0; i < 8; i++) {
+                this.target.addObjectID(params[i]);
+                res = this.target.snmpGetList();
+            }
 
-        String[] res = this.target.snmpGetList();
+        }
+
+
+
 
         return res;
     }
@@ -58,12 +69,21 @@ public class SnmpGetTask extends AsyncTask<String, ProgressDialog, String[]> {
     @Override
     protected void onPostExecute(String[] params){
         // progressBar.dismiss();
+        String procs = "";
         if(disk) {
             DDEditText = (EditText) context.findViewById(R.id.DDEditText);
-            DDEditText.setText(params[0] + " °C");
+            DDEditText.setText(params[0] + " UA");
         } else {
             procUseEditText = (EditText) context.findViewById(R.id.procUseEditText);
-            procUseEditText.setText(params[0]);
+            for (int i = 0; i < 8; i++){
+                if (i != 7) {
+                    procs = procs + String.valueOf(params[i] + " % : ");
+                } else {
+                    procs = procs + String.valueOf(params[i] + " %.");
+                }
+            }
+
+            procUseEditText.setText(procs);
         }
 
 
