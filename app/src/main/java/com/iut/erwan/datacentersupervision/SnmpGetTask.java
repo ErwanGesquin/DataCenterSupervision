@@ -25,17 +25,13 @@ public class SnmpGetTask extends AsyncTask<String, Integer, String[]> {
 
 
     public SnmpGetTask(MainActivity context, String host, int port, String community, Boolean disk){
-        if (context.isConnectingToInternet(context.getApplicationContext())) {
+
             this.context = context;
             this.host = host;
             this.port = port;
             this.community = community;
             this.disk = disk;
-        } else {
-            AlertDialog.Builder alertConn = new AlertDialog.Builder(context.getApplicationContext());
-            alertConn.setTitle("Vous n'êtes pas connecté à internet");
-            alertConn.show();
-        }
+
     }
 
 

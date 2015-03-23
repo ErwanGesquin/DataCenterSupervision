@@ -67,22 +67,34 @@ public class MainActivity extends ActionBarActivity{
             baieTempBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String[] OIDS = new String[1];
-                    OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
-                    taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
-                    taskSonde.execute(OIDS);
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        String[] OIDS = new String[1];
+                        OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
+                        taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
+                        taskSonde.execute(OIDS);
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
+                    }
                 }
             });
 
             discUsageBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String[] OIDS = new String[4];
-                    OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
-                    OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
-                    OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";
-                    taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, true);
-                    taskDDProc.execute(OIDS);
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        String[] OIDS = new String[4];
+                        OIDS[0] = ".1.3.6.1.2.1.25.2.3.1.4.1";
+                        OIDS[1] = ".1.3.6.1.2.1.25.2.3.1.5.1";
+                        OIDS[2] = ".1.3.6.1.2.1.25.2.3.1.6.1";
+                        taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, true);
+                        taskDDProc.execute(OIDS);
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
+                    }
 
                 }
             });
@@ -90,13 +102,19 @@ public class MainActivity extends ActionBarActivity{
             processorUsageBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String[] OIDS = new String[10];
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        String[] OIDS = new String[10];
 
-                    for (int k = 2; k <= 9; k++) {
-                        OIDS[k - 2] = String.valueOf(".1.3.6.1.2.1.25.3.3.1.2." + k);
+                        for (int k = 2; k <= 9; k++) {
+                            OIDS[k - 2] = String.valueOf(".1.3.6.1.2.1.25.3.3.1.2." + k);
+                        }
+                        taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
+                        taskDDProc.execute(OIDS);
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
                     }
-                    taskDDProc = new SnmpGetTask(MainActivity.this, ip1, Integer.parseInt(port1), lec1, false);
-                    taskDDProc.execute(OIDS);
                 }
             });
 
@@ -104,8 +122,40 @@ public class MainActivity extends ActionBarActivity{
             statBaieTempBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
-                    startActivity(intent);
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
+                        startActivity(intent);
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
+                    }
+                }
+            });
+
+            discStatBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        //content
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
+                    }
+                }
+            });
+
+            processorStatsBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (isConnectingToInternet(MainActivity.this)) {
+                        //content
+                    } else {
+                        AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
+                        alertConn.setTitle("Vous n'êtes pas connecté à internet");
+                        alertConn.show();
+                    }
                 }
             });
 
