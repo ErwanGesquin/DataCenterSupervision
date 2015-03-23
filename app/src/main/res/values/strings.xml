@@ -6,7 +6,9 @@
 
     <!-- label manifest -->
     <string name="menu_preferences">Préférences</string>
-    <string name="label_statsActivity">Température de la baie</string>
+    <string name="label_statsTempActivity">Température de la baie</string>
+    <string name="label_statsMPActivity">Usage des processeurs</string>
+    <string name="label_statsDDActivity">Pourcentage d\'utilisation des processeurs</string>
 
     <!-- vue de préférences 1 -->
     <string name="pref_cat_serveursql">PARAMÈTRES DU SERVEUR BDD</string>

@@ -1,11 +1,14 @@
 package com.iut.erwan.datacentersupervision;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.sql.ResultSet;
@@ -13,7 +16,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StatsTEMPActivity extends ActionBarActivity{
-
+    static final private int MENU_PREFERENCES = Menu.FIRST;
+    static final private int CODE_REQUETE_PREFERENCES = 1;
     static final private String LISTE_TEMP_KEY = "LISTE_TEMP_KEY";
     static final private String ARRAY_TEMP_KEY = "ARRAY_TEMP_KEY";
     static final private String TABLE_T = "Table Temperatures";
@@ -36,7 +40,6 @@ public class StatsTEMPActivity extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_stats);
-        this.updateAttributsFromPreferences();
 
         this.listeView = (ListView)this.findViewById(R.id.listViewTemp);
         int layoutID = R.layout.item_perso_temp;
@@ -47,7 +50,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
         this.listeView.setAdapter(arrayTEMPAdapt);
 
         try {
-            clientBDD = new ClientSQLmetier(this.ip, this.port,this.bdd, this.username, this.password, this.timeout);
+            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "supervision", "Password1234", 5);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -87,14 +90,4 @@ public class StatsTEMPActivity extends ActionBarActivity{
         });
         t.start();
     }
-
-    private void updateAttributsFromPreferences(){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
-        this.ip = prefs.getString( PreferencesFragments.PREFKEY_IPSERVEUR, "82.233.223.249");
-        this.port = prefs.getString( PreferencesFragments.PREFKEY_PORTSERVEUR, "1433");
-        this.username =  prefs.getString( PreferencesFragments.PREFKEY_USERNAME, "Supervision");
-        this.password = prefs.getString( PreferencesFragments.PREFKEY_PASSWORD, "Password1234");
-    }
-
 }

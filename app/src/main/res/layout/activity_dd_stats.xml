@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff54c218">
+    android:background="#ff54c218"
+    tools:context=".StatsDDActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +21,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ddListView"
+        android:id="@+id/listViewDD"
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp"
@@ -28,12 +31,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Graphique"
+        android:text="d&apos;utilistation du disque dur"
         android:id="@+id/graphDDBtn"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
-        android:layout_alignEnd="@+id/ddListView"
-        android:layout_alignStart="@+id/ddListView"
+        android:layout_alignEnd="@+id/listViewDD"
+        android:layout_alignStart="@+id/listViewDD"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
 </RelativeLayout>

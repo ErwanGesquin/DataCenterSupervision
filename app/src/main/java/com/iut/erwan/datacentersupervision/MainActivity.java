@@ -137,7 +137,8 @@ public class MainActivity extends ActionBarActivity{
                 @Override
                 public void onClick(View v) {
                     if (isConnectingToInternet(MainActivity.this)) {
-                        //content
+                        Intent intent = new Intent(MainActivity.this, StatsDDActivity.class);
+                        startActivity(intent);
                     } else {
                         AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
                         alertConn.setTitle("Vous n'êtes pas connecté à internet");
@@ -150,7 +151,8 @@ public class MainActivity extends ActionBarActivity{
                 @Override
                 public void onClick(View v) {
                     if (isConnectingToInternet(MainActivity.this)) {
-                        //content
+                        Intent intent = new Intent(MainActivity.this, StatsMPActivity.class);
+                        startActivity(intent);
                     } else {
                         AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
                         alertConn.setTitle("Vous n'êtes pas connecté à internet");

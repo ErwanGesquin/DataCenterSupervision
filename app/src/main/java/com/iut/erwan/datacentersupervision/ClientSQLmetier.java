@@ -24,11 +24,11 @@ public class ClientSQLmetier {
     {
         this.setServeurBDD(serveur);
         this.setNomBDD(bdd);
+        this.setPortBDD(port);
         this.setUserBDD(user);
         this.setMdpBDD(mdp);
         String to = String.valueOf(timeout);
-        setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD().toString()+":"+port.toString()+"/"+bdd+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
-        // Chargement du driver
+        setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD()+":"+getPortBDD()+"/"+getNomBDD()+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
         Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
         DriverManager.setLoginTimeout(timeout);
     }
@@ -43,64 +43,26 @@ public class ClientSQLmetier {
         return result;
     }
 
-    public int addNewTEMP(int nf, String nom, String statut, String ville)
+    public ResultSet getTableUsageDD() throws SQLException
     {
-        int result = -1;
         if( conn == null )
-        {
-            try {
-                conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
-            } catch (SQLException e) {
-                result = -1;
-            }
-        }
-        Log.i(TAG,"open BDD");
-        Statement stmt;
-        try {
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            PreparedStatement prepstmt = conn.prepareStatement("INSERT INTO F (NF, nomF, statut, ville) VALUES (?, ?, ?, ?)");
-            prepstmt.setInt(1, nf);
-            prepstmt.setString(2, nom);
-            prepstmt.setString(3, statut);
-            prepstmt.setString(4, ville);
-            result = prepstmt.executeUpdate();
-            if(prepstmt != null)
-                prepstmt.close();
-            if(stmt != null)
-                stmt.close();
-        } catch (SQLException e) {
-            result = -1;
-        }
+            conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        Log.i(TAG, "open BDD");
+        Statement stmt = conn.createStatement();
+        ResultSet result = stmt.executeQuery("select * from UsageDD");
         return result;
     }
 
-    public int deleteTEMPS(int NF)
+    public ResultSet getTableUsageMP() throws SQLException
     {
-        int result = -1;
         if( conn == null )
-        {
-            try {
-                conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
-            } catch (SQLException e) {
-                result = -1;
-            }
-        }
-        Log.i(TAG,"open BDD");
-        Statement stmt;
-        try {
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            PreparedStatement prepstmt = conn.prepareStatement("DELETE FROM F  WHERE NF = ?");
-            prepstmt.setInt(1, NF);
-            result = prepstmt.executeUpdate();
-            if(prepstmt != null)
-                prepstmt.close();
-            if(stmt != null)
-                stmt.close();
-        } catch (SQLException e) {
-            result = -1;
-        }
+            conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        Log.i(TAG, "open BDD");
+        Statement stmt = conn.createStatement();
+        ResultSet result = stmt.executeQuery("select * from UsageMP");
         return result;
     }
+
 
     public void finalize()
     {

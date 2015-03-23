@@ -22,7 +22,15 @@
         </activity>
         <activity
             android:name=".StatsTEMPActivity"
-            android:label="@string/label_statsActivity" >
+            android:label="@string/label_statsTempActivity" >
+        </activity>
+        <activity
+            android:name=".StatsMPActivity"
+            android:label="@string/label_statsMPActivity" >
+        </activity>
+        <activity
+            android:name=".StatsDDActivity"
+            android:label="@string/label_statsDDActivity" >
         </activity>
     </application>
 

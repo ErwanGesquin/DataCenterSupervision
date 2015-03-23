@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff54c218">
+    android:background="#ff54c218"
+    tools:context=".StatsTEMPActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Statistiques d&apos;utilisation du processeur"
-        android:id="@+id/procStatsTitle"
+        android:text="Statistiques des processeurs"
+        android:id="@+id/tempStatsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -18,24 +21,25 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/procListView"
-        android:layout_alignParentStart="true"
+        android:id="@+id/listViewProc"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="50dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="100dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Graphique"
-        android:id="@+id/graphProcBtn"
+        android:text="Courbe des processeurs"
+        android:id="@+id/Graphique"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/procListView"
-        android:layout_alignStart="@+id/procListView"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/listViewProc" />
 </RelativeLayout>
