@@ -49,19 +49,6 @@
             android:layout_gravity="center_vertical"
             android:paddingLeft="50dp"
             >
-            <TextView android:id="@+id/nomBaie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="50dp"
-            >
             <TextView android:id="@+id/mp1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
