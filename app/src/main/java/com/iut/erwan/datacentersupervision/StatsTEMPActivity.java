@@ -25,14 +25,6 @@ public class StatsTEMPActivity extends ActionBarActivity{
     static final private String ARRAY_TEMP_KEY = "ARRAY_TEMP_KEY";
     static final private String TABLE_T = "Table Temperatures";
 
-
-    private String ip;
-    private String port;
-    private String username;
-    private String password;
-    private String bdd = "Supervision";
-    private int timeout = 5;
-
     private ClientSQLmetier clientBDD;
 
     private ArrayUsageTEMPAdapter arrayTEMPAdapt;
