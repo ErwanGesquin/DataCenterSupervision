@@ -44,13 +44,14 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
 
             String capacite = String.valueOf(fcourant.capacite);
             String utilise = String.valueOf(fcourant.utilise);
+            String usage = Integer.toString(fcourant.usage);
 
             // Assigner les contr�les avec les valeurs de l'objet courant
             if (tv_adate != null){
                 tv_adate.setText(fcourant.adate);
             }
             if (tv_usage != null){
-                tv_usage.setText(fcourant.usage);
+                tv_usage.setText(usage);
             }
             if (tv_capacite != null){
                 tv_capacite.setText(capacite);
