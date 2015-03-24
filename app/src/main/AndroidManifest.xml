@@ -32,6 +32,10 @@
             android:name=".StatsDDActivity"
             android:label="@string/label_statsDDActivity" >
         </activity>
+        <activity
+            android:name=".PlotTEMPActivity"
+           >// android:label="@string/label_statsDDActivity" >
+        </activity>
     </application>
 
 </manifest>
