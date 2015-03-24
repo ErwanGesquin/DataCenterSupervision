@@ -42,6 +42,8 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
             TextView tv_capacite = (TextView) v.findViewById(R.id.capacite);
             TextView tv_utilise = (TextView) v.findViewById(R.id.utilise);
 
+            String capacite = String.valueOf(fcourant.capacite);
+            String utilise = String.valueOf(fcourant.utilise);
 
             // Assigner les contr�les avec les valeurs de l'objet courant
             if (tv_adate != null){
@@ -50,12 +52,12 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
             if (tv_usage != null){
                 tv_usage.setText(fcourant.usage);
             }
-            /*if (tv_capacite != null){
-                tv_capacite.setText(fcourant.capacite);
+            if (tv_capacite != null){
+                tv_capacite.setText(capacite);
             }
             if (tv_utilise != null){
-                tv_utilise.setText(fcourant.utilise);
-            }*/
+                tv_utilise.setText(utilise);
+            }
 
         }
         // retourne la vue du layout item � dessiner

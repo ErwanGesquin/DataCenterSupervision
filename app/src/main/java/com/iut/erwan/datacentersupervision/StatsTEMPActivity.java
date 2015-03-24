@@ -53,6 +53,8 @@ public class StatsTEMPActivity extends ActionBarActivity{
         arrayTEMPAdapt = new ArrayUsageTEMPAdapter(this,layoutID,arrayTEMP);
         this.listeView.setAdapter(arrayTEMPAdapt);
 
+        plotTempBtn = (Button) findViewById(R.id.btnPlotTemp);
+
         try {
             this.clientBDD = new ClientSQLmetier("82.233.223.249", "1433", "Supervision", "supervision", "Password1234", 5);
         } catch (SQLException e) {
