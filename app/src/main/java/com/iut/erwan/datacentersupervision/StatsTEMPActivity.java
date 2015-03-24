@@ -67,10 +67,9 @@ public class StatsTEMPActivity extends ActionBarActivity{
             public void run()
             {
                 try{
-                    ResultSet res = clientBDD.getTableTEMP();
+                    ResultSet res = clientBDD.getTableTEMP(6);
 
                     while(res.next()){
-                        Log.i("Données SQL :", res.getString(3));
                         final TEMP T = new TEMP(res.getString(1),res.getString(2),res.getString(3));
                         runOnUiThread(new Runnable()
                         {

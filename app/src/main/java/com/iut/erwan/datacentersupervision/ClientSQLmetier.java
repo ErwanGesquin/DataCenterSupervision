@@ -43,6 +43,16 @@ public class ClientSQLmetier {
         return result;
     }
 
+    public ResultSet getTableTEMP(int nbr) throws SQLException
+    {
+        if( conn == null )
+            conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        Log.i(TAG, "open BDD");
+        Statement stmt = conn.createStatement();
+        ResultSet result = stmt.executeQuery("select top " + String.valueOf(nbr) + " * from Temperatures order by date desc");
+        return result;
+    }
+
     public ResultSet getTableUsageDD() throws SQLException
     {
         if( conn == null )
@@ -50,6 +60,16 @@ public class ClientSQLmetier {
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery("select * from UsageDD");
+        return result;
+    }
+
+    public ResultSet getTableUsageDD(int nbr) throws SQLException
+    {
+        if( conn == null )
+            conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        Log.i(TAG, "open BDD");
+        Statement stmt = conn.createStatement();
+        ResultSet result = stmt.executeQuery("select top " + String.valueOf(nbr) + " * from UsageDD");
         return result;
     }
 
@@ -63,6 +83,15 @@ public class ClientSQLmetier {
         return result;
     }
 
+    public ResultSet getTableUsageMP(int nbr) throws SQLException
+    {
+        if( conn == null )
+            conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        Log.i(TAG, "open BDD");
+        Statement stmt = conn.createStatement();
+        ResultSet result = stmt.executeQuery("select top " + String.valueOf(nbr) + " * from UsageMP");
+        return result;
+    }
 
     public void finalize()
     {

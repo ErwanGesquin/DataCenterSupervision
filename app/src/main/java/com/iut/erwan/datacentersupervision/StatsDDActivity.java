@@ -30,7 +30,7 @@ public class StatsDDActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dd_stats);
 
-        this.listeView = (ListView)this.findViewById(R.id.listViewTemp);
+        this.listeView = (ListView)this.findViewById(R.id.listViewDD);
         int layoutID = R.layout.item_perso_temp;
         if(savedInstanceState!=null) {
             this.arrayDD = (ArrayList<UsageDD>) savedInstanceState.getSerializable(StatsDDActivity.TABLE_DD);
@@ -58,21 +58,20 @@ public class StatsDDActivity extends ActionBarActivity {
             public void run()
             {
                 try{
-                    ResultSet res = clientBDD.getTableUsageDD();
+                    ResultSet res = clientBDD.getTableUsageDD(6);
 
                     while(res.next()){
-                        Log.i("Données SQL :", res.getString(3));
-                        final UsageDD DD = new UsageDD(res.getString(1),res.getInt(2),res.getLong(3),res.getLong(3));
-                        runOnUiThread(new Runnable()
-                        {
-                            public void run()
-                            {
-                                arrayDD.add(DD);
-                                arrayDDAdapt.notifyDataSetChanged();
-                            }
-                        });
+                        final UsageDD DD = new UsageDD(res.getString(1),res.getInt(2),res.getLong(3),res.getLong(4));
+                        arrayDD.add(DD);
                     }
                     res.close();
+                    runOnUiThread(new Runnable()
+                    {
+                        public void run()
+                        {
+                            arrayDDAdapt.notifyDataSetChanged();
+                        }
+                    });
                 }catch(java.sql.SQLException e){
                     e.printStackTrace();
                 }
