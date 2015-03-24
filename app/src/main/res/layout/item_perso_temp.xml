@@ -7,6 +7,14 @@
     android:orientation="horizontal"
     tools:context=".StatsTEMPActivity"
     android:id="@+id/listViewTemp" >
+    <ImageView
+        android:id="@+id/imgTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:contentDescription="Image d'un thermomètre"
+        />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"

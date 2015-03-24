@@ -39,7 +39,7 @@ public class ClientSQLmetier {
             conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select * from Temperature");
+        ResultSet result = stmt.executeQuery("select * from Temperatures order by date desc");
         return result;
     }
 

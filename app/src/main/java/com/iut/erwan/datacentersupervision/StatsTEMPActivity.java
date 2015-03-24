@@ -50,7 +50,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
         this.listeView.setAdapter(arrayTEMPAdapt);
 
         try {
-            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "supervision", "Password1234", 5);
+            this.clientBDD = new ClientSQLmetier("82.233.223.249", "1433", "Supervision", "supervision", "Password1234", 5);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
