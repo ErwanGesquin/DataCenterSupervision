@@ -22,19 +22,23 @@
         </activity>
         <activity
             android:name=".StatsTEMPActivity"
-            android:label="@string/label_statsTempActivity" >
+            android:label="@string/label_statsTempActivity"
+            android:configChanges="orientation|screenSize" >
         </activity>
         <activity
             android:name=".StatsMPActivity"
-            android:label="@string/label_statsMPActivity" >
+            android:label="@string/label_statsMPActivity"
+            android:configChanges="orientation|screenSize">
         </activity>
         <activity
             android:name=".StatsDDActivity"
-            android:label="@string/label_statsDDActivity" >
+            android:label="@string/label_statsDDActivity"
+            android:configChanges="orientation|screenSize">
         </activity>
         <activity
             android:name=".PlotTEMPActivity"
-           >// android:label="@string/label_statsDDActivity" >
+            android:label="@string/label_statsDDActivity"
+            >
         </activity>
     </application>
 

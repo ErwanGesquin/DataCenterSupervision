@@ -31,6 +31,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
     private ArrayList <TEMP> arrayTEMP = new ArrayList<TEMP>();
     private ListView listeView;
 
+    private ProgressDialog dialogP;
     private Button plotTempBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
