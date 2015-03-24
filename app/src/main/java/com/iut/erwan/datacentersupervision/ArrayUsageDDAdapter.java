@@ -50,12 +50,12 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
             if (tv_usage != null){
                 tv_usage.setText(fcourant.usage);
             }
-            if (tv_capacite != null){
+            /*if (tv_capacite != null){
                 tv_capacite.setText(fcourant.capacite);
             }
             if (tv_utilise != null){
                 tv_utilise.setText(fcourant.utilise);
-            }
+            }*/
 
         }
         // retourne la vue du layout item � dessiner

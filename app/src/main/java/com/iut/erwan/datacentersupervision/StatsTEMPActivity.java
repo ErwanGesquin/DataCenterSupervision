@@ -1,5 +1,6 @@
 package com.iut.erwan.datacentersupervision;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.sql.ResultSet;
@@ -36,6 +39,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
     private ListView listeView;
 
     private ProgressDialog dialogP;
+    private Button plotTempBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,5 +93,13 @@ public class StatsTEMPActivity extends ActionBarActivity{
             }
         });
         t.start();
+
+        plotTempBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
+                    startActivity(intent);
+            }
+        });
     }
 }

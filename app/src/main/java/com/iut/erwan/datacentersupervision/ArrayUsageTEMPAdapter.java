@@ -57,5 +57,7 @@ public class ArrayUsageTEMPAdapter extends ArrayAdapter<TEMP>{
         }
         // retourne la vue du layout item � dessiner
         return v;
+
+
     }
 }
