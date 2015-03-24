@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">DataCenterSupervision</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
     <!-- label manifest -->
@@ -38,6 +37,7 @@
     <string name="summary_portAgentV1_s">Entrer le port d\'écoute du serveur</string>
     <string name="title_communauteSonde">Communauté SNMP en lecture</string>
     <string name="summary_communauteSonde">Entrer le communauté SNMP en lecture</string>
+
 
 
 </resources>
