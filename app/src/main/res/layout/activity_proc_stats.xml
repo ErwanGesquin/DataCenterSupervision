@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Statistiques des processeurs"
+        android:text="@string/procStatsText"
         android:id="@+id/tempStatsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -34,7 +34,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Courbe des processeurs"
+        android:text="@string/graphProcBtn"
         android:id="@+id/Graphique"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Statistiques de la température"
+        android:text="@string/tempStatsText"
         android:id="@+id/tempStatsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -34,7 +34,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Courbe des statistiques"
+        android:text="@string/graphTempBtn"
         android:id="@+id/btnPlotTemp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"

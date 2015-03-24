@@ -38,6 +38,30 @@
     <string name="title_communauteSonde">Communauté SNMP en lecture</string>
     <string name="summary_communauteSonde">Entrer le communauté SNMP en lecture</string>
 
+    <string name="ddStatsText">Statistiques Disque dur</string>
+    <string name="graphDDBtn">Graphe usage Disque dur</string>
+
+    <string name="procStatsText">Statistiques des processeurs</string>
+    <string name="graphProcBtn">Graphe usage processeurs</string>
+
+    <string name="tempStatsText">Statistiques de la température</string>
+    <string name="graphTempBtn">Graphe des températures</string>
+
+    <string name="mainTitle">Supervision du Data Center</string>
+    <string name="discUseBtn">Usage disque</string>
+    <string name="discStatsBtn">Statistiques disque</string>
+    <string name="procUseBtn">Usage processeur</string>
+    <string name="procStatsBtn">Statistique processeur</string>
+    <string name="baieTempBtn">Température baie</string>
+    <string name="tempStatsBtn">Statistique température baie</string>
+    <string name="ddUseView">Utilisation DD :</string>
+    <string name="procUseView">Utilisation processeur :</string>
+    <string name="tempView">Température de la baie :</string>
+
+
+
+
+
 
 
 </resources>

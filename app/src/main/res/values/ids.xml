@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="activity_plot_temp" type="id">activity_plot_temp</item>
+    <item name="activity_plot_dd" type="id">activity_plot_dd</item>
+    <item name="activity_plot_md" type="id">activity_plot_md</item>
 </resources>

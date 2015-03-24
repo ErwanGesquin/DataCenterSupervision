@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Statistiques d&apos;utilistation du disque dur"
+        android:text="@string/ddStatsText"
         android:id="@+id/ddStatsTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -31,7 +31,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="d&apos;utilistation du disque dur"
+        android:text="@string/graphDDBtn"
         android:id="@+id/graphDDBtn"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
