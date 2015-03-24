@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">DataCenterSupervision</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- label manifest -->
+    <string name="menu_preferences">Setting</string>
+    <string name="label_statsTempActivity">Bay Temperature</string>
+    <string name="label_statsMPActivity">Processor use</string>
+    <string name="label_statsDDActivity">Processor use percentage</string>
+
+    <!-- vue de préférences 1 -->
+    <string name="pref_cat_serveursql">BDD SERVER SETTINGS</string>
+    <string name="title_ipServeur">SQL Express server</string>
+    <string name="summary_ipServeur">Write address or hsotname</string>
+    <string name="title_portServeur">SQL Express Server</string>
+    <string name="summary_portServeur">Write the listening port</string>
+    <string name="title_user">User name</string>
+    <string name="summary_user">Write the name of the allowed account</string>
+    <string name="title_password">Password</string>
+    <string name="summary_password">Write the password</string>
+
+    <!-- vue de préférences 2 -->
+    <string name="pref_cat_serveursnmp">SNMP SERVER SETTINGS</string>
+    <string name="title_ipAgentV1">v1 SNMP Agent</string>
+    <string name="summary_ipAgentV1">Write address or hsotname</string>
+    <string name="title_portAgentV1">v1 SNMP Agent</string>
+    <string name="summary_portAgentV1">Write the listening port</string>
+    <string name="title_communauteDisc">SNMP community in reading</string>
+    <string name="summary_communauteDisc">Write the SNMP community</string>
+
+    <!-- vue de préférences 3 -->
+    <string name="pref_cat_serveursonde">SNMP TEMPERATURE SENSOR SETTINGS</string>
+    <string name="title_ipAgentV1_s">v1 SNMP Agent</string>
+    <string name="summary_ipAgentV1_s">Write address or hsotname</string>
+    <string name="title_portAgentV1_s">v1 SNMP Agent</string>
+    <string name="summary_portAgentV1_s">Write the listening port</string>
+    <string name="title_communauteSonde">SNMP community in reading</string>
+    <string name="summary_communauteSonde">Write the SNMP community</string>
+
+    <string name="ddStatsText">Hard drive statistics</string>
+    <string name="graphDDBtn">Hard drive use graph</string>
+
+    <string name="procStatsText">Processors statistics</string>
+    <string name="graphProcBtn">Processors use graph</string>
+
+    <string name="tempStatsText">Temperature statistics</string>
+    <string name="graphTempBtn">Temperature graph</string>
+
+    <string name="mainTitle">Data Center Supervision</string>
+    <string name="discUseBtn">Hard drive use</string>
+    <string name="discStatsBtn">Hard drive stats</string>
+    <string name="procUseBtn">Processors use</string>
+    <string name="procStatsBtn">Processors stats</string>
+    <string name="baieTempBtn">Bay temperature</string>
+    <string name="tempStatsBtn">Bay temperature stats</string>
+    <string name="ddUseView">Hard drive use :</string>
+    <string name="procUseView">Processor use :</string>
+    <string name="tempView">Bay temperature :</string>
+
+</resources>
