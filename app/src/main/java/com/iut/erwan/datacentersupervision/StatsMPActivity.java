@@ -1,8 +1,10 @@
 package com.iut.erwan.datacentersupervision;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -16,14 +18,16 @@ public class StatsMPActivity extends ActionBarActivity {
     static final private String LISTE_TEMP_KEY = "LISTE_MP_KEY";
     static final private String ARRAY_TEMP_KEY = "ARRAY_MP_KEY";
     static final private String TABLE_MP = "Table Processeurs";
+    static final public String PARAM_SOURCE = "Table des proc";
 
     private ClientSQLmetier clientBDD;
 
     private ArrayUsageMPAdapter arrayMPAdapt;
     private ArrayList<UsageMP> arrayMP = new ArrayList<UsageMP>();
     private ListView listeView;
+    private ArrayList<Integer> mp_vals = new ArrayList<Integer>();
 
-    private Button plotDDBtn;
+    private Button plotMPBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +40,6 @@ public class StatsMPActivity extends ActionBarActivity {
         }
         arrayMPAdapt = new ArrayUsageMPAdapter(this,layoutID,arrayMP);
         this.listeView.setAdapter(arrayMPAdapt);
-
-        plotDDBtn = (Button) findViewById(R.id.btnPlotTemp);
 
         try {
             this.clientBDD = new ClientSQLmetier("82.233.223.249", "1433", "Supervision", "supervision", "Password1234", 5);
@@ -62,6 +64,14 @@ public class StatsMPActivity extends ActionBarActivity {
                     while(res.next()){
                         final UsageMP MP = new UsageMP(res.getString(1),res.getInt(2),res.getInt(3),res.getInt(4),res.getInt(5),res.getInt(6),res.getInt(7),res.getInt(8),res.getInt(9),res.getInt(10));
                         arrayMP.add(MP);
+                        mp_vals.add(MP.mp1);
+                        mp_vals.add(MP.mp2);
+                        mp_vals.add(MP.mp3);
+                        mp_vals.add(MP.mp4);
+                        mp_vals.add(MP.mp5);
+                        mp_vals.add(MP.mp6);
+                        mp_vals.add(MP.mp7);
+                        mp_vals.add(MP.mp8);
                     }
                     res.close();
                     runOnUiThread(new Runnable()
@@ -78,5 +88,16 @@ public class StatsMPActivity extends ActionBarActivity {
             }
         });
         t.start();
+
+        plotMPBtn = (Button) findViewById(R.id.Graphique);
+        plotMPBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StatsMPActivity.this, PlotMPActivity.class);
+                intent.putIntegerArrayListExtra(PARAM_SOURCE, mp_vals);
+                startActivity(intent);
+
+            }
+        });
     }
 }

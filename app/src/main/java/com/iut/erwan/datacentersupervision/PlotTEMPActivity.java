@@ -35,9 +35,6 @@ public class PlotTEMPActivity extends Activity{
         Intent intent = getIntent();
         final ArrayList<String> param_recu = intent.getStringArrayListExtra(StatsTEMPActivity.PARAM_SOURCE);
 
-
-
-
         setContentView(R.layout.activity_plot_temp);
 
         plot = (XYPlot) findViewById(R.id.activity_plot_temp);

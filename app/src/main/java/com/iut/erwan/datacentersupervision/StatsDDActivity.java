@@ -1,9 +1,11 @@
 package com.iut.erwan.datacentersupervision;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,12 +19,14 @@ public class StatsDDActivity extends ActionBarActivity {
     static final private String LISTE_TEMP_KEY = "LISTE_DD_KEY";
     static final private String ARRAY_TEMP_KEY = "ARRAY_DD_KEY";
     static final private String TABLE_DD = "Table Disques Durs";
+    static final public String PARAM_SOURCE = "Table des disques";
 
     private ClientSQLmetier clientBDD;
 
     private ArrayUsageDDAdapter arrayDDAdapt;
     private ArrayList<UsageDD> arrayDD = new ArrayList<UsageDD>();
     private ListView listeView;
+    private ArrayList<Integer> dd_vals = new ArrayList<Integer>();
 
     private Button plotDDBtn;
 
@@ -63,6 +67,7 @@ public class StatsDDActivity extends ActionBarActivity {
                     while(res.next()){
                         final UsageDD DD = new UsageDD(res.getString(1),res.getInt(2),res.getLong(3),res.getLong(4));
                         arrayDD.add(DD);
+                        dd_vals.add(DD.usage);
                     }
                     res.close();
                     runOnUiThread(new Runnable()
@@ -79,5 +84,16 @@ public class StatsDDActivity extends ActionBarActivity {
             }
         });
         t.start();
+
+        plotDDBtn = (Button) findViewById(R.id.graphDDBtn);
+        plotDDBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StatsDDActivity.this, PlotDDActivity.class);
+                intent.putIntegerArrayListExtra(PARAM_SOURCE, dd_vals);
+                startActivity(intent);
+
+            }
+        });
     }
 }
