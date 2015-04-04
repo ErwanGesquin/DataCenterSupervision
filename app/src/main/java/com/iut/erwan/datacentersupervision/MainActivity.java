@@ -68,6 +68,7 @@ public class MainActivity extends ActionBarActivity{
                 @Override
                 public void onClick(View v) {
                     if (isConnectingToInternet(MainActivity.this)) {
+                        baieTempBtn.setEnabled(true);
                         String[] OIDS = new String[1];
                         OIDS[0] = ".1.3.6.1.4.1.21796.4.1.3.1.4.1";
                         taskSonde = new SnmpGetTaskSonde(MainActivity.this, ip2, Integer.parseInt(port2), lec2);
@@ -76,6 +77,7 @@ public class MainActivity extends ActionBarActivity{
                         AlertDialog.Builder alertConn = new AlertDialog.Builder(MainActivity.this);
                         alertConn.setTitle("Vous n'êtes pas connecté à internet");
                         alertConn.show();
+//                        baieTempBtn.setEnabled(false);
                     }
                 }
             });

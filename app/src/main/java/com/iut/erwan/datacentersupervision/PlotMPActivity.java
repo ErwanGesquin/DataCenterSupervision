@@ -46,11 +46,7 @@ public class PlotMPActivity extends Activity {
 
         plot.addSeries(series1, serie1format);
 
-        LineAndPointFormatter serie2format = new LineAndPointFormatter();
-        serie2format.setPointLabelFormatter(new PointLabelFormatter());
-        serie2format.configure(getApplicationContext(), R.xml.test_serie_2_format);
 
-        plot.addSeries(series2, serie2format);
 
 
     }

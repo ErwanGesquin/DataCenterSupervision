@@ -56,5 +56,6 @@
     <string name="tempStatsBtn">Statistique température baie</string>
     <string name="ddUseView">Utilisation DD :</string>
     <string name="procUseView">Utilisation processeur :</string>
-    <string name="tempView">Température de la baie :</string>
+    <string name="tempView">Température de la baie :</string>s
+
 </resources>

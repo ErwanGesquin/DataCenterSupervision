@@ -24,6 +24,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
     static final private String LISTE_TEMP_KEY = "LISTE_TEMP_KEY";
     static final private String ARRAY_TEMP_KEY = "ARRAY_TEMP_KEY";
     static final private String TABLE_T = "Table Temperatures";
+    static final public String PARAM_SOURCE = "Table des températures";
 
 
     private ClientSQLmetier clientBDD;
@@ -31,6 +32,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
     private ArrayUsageTEMPAdapter arrayTEMPAdapt;
     private ArrayList <TEMP> arrayTEMP = new ArrayList<TEMP>();
     private ListView listeView;
+    private ArrayList<String> temp_vals = new ArrayList<String>();
 
     private ProgressDialog dialogP;
     private Button plotTempBtn;
@@ -67,7 +69,7 @@ public class StatsTEMPActivity extends ActionBarActivity{
             public void run()
             {
                 try{
-                    ResultSet res = clientBDD.getTableTEMP(6);
+                    final ResultSet res = clientBDD.getTableTEMP(6);
 
                     while(res.next()){
                         final TEMP T = new TEMP(res.getString(1),res.getString(2),res.getString(3));
@@ -76,6 +78,8 @@ public class StatsTEMPActivity extends ActionBarActivity{
                             public void run()
                             {
                                 arrayTEMP.add(T);
+                               temp_vals.add(T.temp);
+
                                 arrayTEMPAdapt.notifyDataSetChanged();
                             }
                         });
@@ -92,8 +96,10 @@ public class StatsTEMPActivity extends ActionBarActivity{
         plotTempBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
-                    startActivity(intent);
+            Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
+            intent.putStringArrayListExtra(PARAM_SOURCE, temp_vals);
+            startActivity(intent);
+
             }
         });
     }

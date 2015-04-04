@@ -38,7 +38,7 @@ public class SnmpGetTask extends AsyncTask<String, Integer, String[]> {
     @Override
     protected void onPreExecute(){
         progressBar = new ProgressDialog(context);
-        progressBar.setMessage("Progression.");
+        progressBar.setMessage("Prgression ...");
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressBar.show();
     }
